@@ -4,6 +4,11 @@ import useGlobalReducer from "../hooks/useGlobalReducer";
 const CardPlanet = ({ planet }) => {
   const { store, dispatch } = useGlobalReducer();
 
+  const favorite = {
+    id: planet.url,
+    name: planet.name
+  }
+
   return (
     <div className="card" style={{ width: "18rem" }}>
       <img
@@ -21,7 +26,7 @@ const CardPlanet = ({ planet }) => {
             }`}
           onClick={() => dispatch({
             type: "toggle_favorite",
-            payload: planet
+            payload: favorite
           })}
         >
           Fav

@@ -6,7 +6,10 @@ import { Link } from "react-router-dom";
 const CardPeople = ({ people }) => {
     const { store, dispatch } = useGlobalReducer()
 
-
+    const favorite = {
+    id: people.url,
+    name: people.name
+  }
 
 
     return (
@@ -17,13 +20,13 @@ const CardPeople = ({ people }) => {
                 <div className="card-body mt-auto row">
                     <Link to={`/personaje/${people.uid}`} className="btn btn-primary col">Details</Link>
                     <button
-                        className={`btn ms-2 ${store.favorites.some(f => f.uid === people.uid)
+                        className={`btn ms-2 ${store.favorites.some(f => f.id === people.id)
                                 ? "btn-warning"
                                 : "btn-outline-warning"
                             }`}
                         onClick={() => dispatch({
                             type: "toggle_favorite",
-                            payload: people
+                            payload: favorite
                         })}
                     >
                         Fav
