@@ -18,7 +18,7 @@ const CardVehicle = ({ vehicle }) => {
         <div className="card-body mt-auto row">
           <Link to={`/vehicle/${vehicle.uid}`} className="btn btn-primary col">Details</Link>
           <button
-            className={`btn ${isFavorite ? "btn-warning" : "btn-outline-warning"}`}
+            className={`ms-1 col btn ${isFavorite ? "btn-warning" : "btn-outline-warning"}`}
             onClick={() => dispatch({
               type: "toggle_favorite",
               payload: {

@@ -4,17 +4,6 @@ import useGlobalReducer from "../hooks/useGlobalReducer";
 export const Navbar = () => {
   const { store, dispatch } = useGlobalReducer();
 
-  const favToPath = (apiUrl) => {
-    const parts = apiUrl.split("/").filter(Boolean);
-    const resource = parts[parts.length - 2]; // "people" | "planets" | "vehicles"
-    const uid = parts[parts.length - 1];      // "4"
-
-    if (resource === "people") return `/personaje/${uid}`;
-    if (resource === "planets") return `/planet/${uid}`;
-    if (resource === "vehicles") return `/vehicle/${uid}`;
-    return "/";
-  };
-
   return (
     <nav className="navbar navbar-light bg-light">
       <div className="container d-flex justify-content-between">
@@ -26,7 +15,7 @@ export const Navbar = () => {
           />
         </Link>
 
-        <div className="ms-auto dropdown">
+        <div className="ms-auto dropdown ">
           <button
             className="btn btn-outline-primary dropdown-toggle"
             type="button"
@@ -45,10 +34,10 @@ export const Navbar = () => {
             ) : (
               store.favorites.map((fav, idx) => (
                 <li
-                  key={fav.id || idx}
+                  key={fav.path || idx}
                   className="d-flex align-items-center justify-content-between px-2"
                 >
-                  <Link className="dropdown-item" to={favToPath(fav.id)}>
+                  <Link className="dropdown-item" to={fav.path}>
                     {fav.name}
                   </Link>
 

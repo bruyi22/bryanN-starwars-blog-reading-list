@@ -40,16 +40,16 @@ export default function storeReducer(store, action = {}) {
         ...store, vehicle: vehicles
       };
 
-    case 'toggle_favorite':
-      const {id} = action.payload
-      const exists = store.favorites.some(f => f.id === action.payload.id);
-       
+    case "toggle_favorite": {
+      const exists = store.favorites.some((f) => f.path === action.payload.path);
+
       return {
         ...store,
         favorites: exists
-          ? store.favorites.filter(f => f.id !== action.payload.id)
+          ? store.favorites.filter((f) => f.path !== action.payload.path)
           : [...store.favorites, action.payload]
       };
+    }
     ///////////////////////////
     default:
       throw Error('Unknown action.');
