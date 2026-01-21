@@ -3,6 +3,7 @@ import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import CardPeople from "../components/CardPeople.jsx";
 import CardPlanet from "../components/CardPlanet.jsx";
+import CardVehicle from "../components/CardVehicle.jsx";
 
 
 export const Home = () => {
@@ -48,6 +49,7 @@ export const Home = () => {
 	useEffect(() => {
 		character()
 		planet()
+		vehicle()
 	}, [])
 
 	return (
@@ -68,6 +70,7 @@ export const Home = () => {
 					)
 				})}
 			</div>
+			<h1 className="text-danger">Vehicles</h1>
 			<div className='d-flex flex-nowrap overflow-auto'>
 				{store.vehicle.map((value, index) => {
 					return (
