@@ -8,6 +8,8 @@ const CardPlanet = ({ planet }) => {
     id: planet.url,
     name: planet.name
   }
+  const isFavorite = store.favorites.some(f => f.id === planet.url);
+
 
   return (
     <div>
@@ -17,16 +19,17 @@ const CardPlanet = ({ planet }) => {
         <div className="card-body mt-auto row">
           <Link to={`/planet/${planet.uid}`} className="btn btn-primary col">Details</Link>
           <button
-            className={`btn ms-2 col ${store.favorites.some(f => f.id === planet.id)
-              ? "btn-warning"
-              : "btn-outline-warning"
-              }`}
+            className={`btn ${isFavorite ? "btn-warning" : "btn-outline-warning"}`}
             onClick={() => dispatch({
               type: "toggle_favorite",
-              payload: favorite
-            })}
+              payload: {
+                id: planet.url,
+                name: planet.name
+              }
+            })
+            }
           >
-            Fav
+            {isFavorite ? "★ Favorite" : "☆ Favorite"}
           </button>
         </div>
       </div>
