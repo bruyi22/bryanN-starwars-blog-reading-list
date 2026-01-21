@@ -7,8 +7,9 @@ import {
 } from "react-router-dom";
 import { Layout } from "./pages/Layout";
 import { Home } from "./pages/Home";
-import { DetailPeople } from "./pages/DetailPeople.jsx";
+import {DetailPeople} from "./pages/DetailPeople.jsx";
 import DetailPlanet from "./pages/DetailPlanet.jsx";
+import DetailVehicle from "./pages/DetailVehicle.jsx";
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -25,6 +26,7 @@ export const router = createBrowserRouter(
         <Route path= "/" element={<Home />} />
         <Route path="/personaje/:uid" element={ <DetailPeople />} />
         <Route path="/planet/:uid" element={ <DetailPlanet />} />
+        <Route path="/vehicle/:uid" element={ <DetailVehicle />} />
       </Route>
     )
 );

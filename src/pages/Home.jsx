@@ -14,10 +14,10 @@ export const Home = () => {
 		const response = await fetch("https://www.swapi.tech/api/people/")
 
 		const data = await response.json()
-		const personajesBasicos = data.results;
+		const basic_character = data.results;
 		dispatch({
 			type: "get_personajes",
-			payload: { personaje: personajesBasicos }
+			payload: { personaje: basic_character }
 		})
 
 
@@ -25,10 +25,20 @@ export const Home = () => {
 	async function planet() {
 		const response = await fetch("https://www.swapi.tech/api/planets/")
 		const data = await response.json()
-		const basicplanets = data.results;
+		const basic_planets = data.results;
 		dispatch({
-			type: 'get_planets',
-			payload: {planets: basicplanets}
+			type: 'get_planetas',
+			payload: {planetas: basic_planets}
+		})
+		
+	}
+	async function vehicle() {
+		const response = await fetch("https://www.swapi.tech/api/vehicles/")
+		const data = await response.json()
+		const basic_vehicle = data.results;
+		dispatch({
+			type: 'get_vehicles',
+			payload: {vehicles: basic_vehicle}
 		})
 		
 	}
@@ -55,6 +65,13 @@ export const Home = () => {
 				{store.planet.map((value, index) => {
 					return (
 						<CardPlanet key={index} planet={value} />
+					)
+				})}
+			</div>
+			<div className='d-flex flex-nowrap overflow-auto'>
+				{store.vehicle.map((value, index) => {
+					return (
+						<CardVehicle key={index} vehicle={value} />
 					)
 				})}
 			</div>

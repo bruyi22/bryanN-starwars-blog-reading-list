@@ -20,7 +20,7 @@ const CardPeople = ({ people }) => {
                 <div className="card-body mt-auto row">
                     <Link to={`/personaje/${people.uid}`} className="btn btn-primary col">Details</Link>
                     <button
-                        className={`btn ms-2 ${store.favorites.some(f => f.id === people.id)
+                        className={`btn ms-2 col ${store.favorites.some(f => f.id === people.id)
                                 ? "btn-warning"
                                 : "btn-outline-warning"
                             }`}

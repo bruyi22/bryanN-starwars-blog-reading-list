@@ -3,6 +3,7 @@ export const initialStore = () => {
     message: null,
     character: [],
     planet: [],
+    vehicle: [],
     favorites: []
   }
 }
@@ -26,11 +27,19 @@ export default function storeReducer(store, action = {}) {
         ...store, character: personaje
 
       };
-    case 'get_planets':
-      const { planets } = action.payload
+
+    case 'get_planetas':
+      const { planetas } = action.payload
       return {
-        ...store, planet: planets
+        ...store, planet: planetas
       };
+
+    case 'get_vehicles':
+      const { vehicles } = action.payload
+      return {
+        ...store, vehicle: vehicles
+      };
+
     case 'toggle_favorite':
       const {id} = action.payload
       const exists = store.favorites.some(f => f.id === action.payload.id);
