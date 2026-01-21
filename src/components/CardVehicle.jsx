@@ -23,7 +23,8 @@ const CardVehicle = ({ vehicle }) => {
               type: "toggle_favorite",
               payload: {
                 id: vehicle.url,
-                name: vehicle.name
+                name: vehicle.name,
+                path: `/vehicle/${vehicle.uid}`
               }
             })
             }

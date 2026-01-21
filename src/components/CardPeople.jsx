@@ -26,7 +26,8 @@ const CardPeople = ({ people }) => {
                             type: "toggle_favorite",
                             payload: {
                                 id: people.url,
-                                name: people.name
+                                name: people.name,
+                                path: `/personaje/${people.uid}`
                             }
                         })
                         }

@@ -24,7 +24,8 @@ const CardPlanet = ({ planet }) => {
               type: "toggle_favorite",
               payload: {
                 id: planet.url,
-                name: planet.name
+                name: planet.name,
+                path: `/planet/${planet.uid}`
               }
             })
             }
