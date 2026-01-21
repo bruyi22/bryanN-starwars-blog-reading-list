@@ -1,23 +1,23 @@
 import { Link } from "react-router-dom";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 
-const CardPlanet = ({ vechile }) => {
+const CardVehicle = ({ vehicle }) => {
   const { store, dispatch } = useGlobalReducer();
 
   const favorite = {
-    id: vechile.url,
-    name: vechile.name
+    id: vehicle.url,
+    name: vehicle.name
   }
 
   return (
     <div>
       <div className="card" style={{ width: "18rem" }}>
-        <img src={`https://raw.githubusercontent.com/breatheco-de/swapi-images/master/public/images/vechiles/${vechile.uid}.jpg`} className="card-img-top" alt="..." />
-        <h5 className="card-title">Name: {vechile.name}</h5>
+        <img src={`https://raw.githubusercontent.com/breatheco-de/swapi-images/master/public/images/vehicles/${vehicle.uid}.jpg`} className="card-img-top" alt="..." />
+        <h5 className="card-title">Name: {vehicle.name}</h5>
         <div className="card-body mt-auto row">
-          <Link to={`/vechile/${vechile.uid}`} className="btn btn-primary col">Details</Link>
+          <Link to={`/vehicle/${vehicle.uid}`} className="btn btn-primary col">Details</Link>
           <button
-            className={`btn ms-2 col ${store.favorites.some(f => f.id === vechile.id)
+            className={`btn ms-2 col ${store.favorites.some(f => f.id === vehicle.id)
               ? "btn-warning"
               : "btn-outline-warning"
               }`}
@@ -34,4 +34,4 @@ const CardPlanet = ({ vechile }) => {
   );
 };
 
-export default CardPlanet;
+export default CardVehicle;

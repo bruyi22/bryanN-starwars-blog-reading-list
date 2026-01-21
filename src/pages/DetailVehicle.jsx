@@ -48,8 +48,8 @@ const DetailVehicle = () => {
                             <h5 className="p-2">{vehicle?.passengers}</h5>
                         </div>
                         <div className="text-center">
-                            <p>Population</p>
-                            <h5 className="p-2">{vehicle?.population}</h5>
+                            <p>Crew</p>
+                            <h5 className="p-2">{vehicle?.crew}</h5>
                         </div>
                         <div className="text-center">
                             <p>Manufacturer</p>
